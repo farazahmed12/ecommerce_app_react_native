@@ -16,7 +16,7 @@ const App = () => {
   return (
     <View className="flex-1 bg-gray-200 dark:bg-black">
         <Switch value={colorScheme === 'dark' } onChange={toggleColorScheme} />
-      <Text className="text-red-300 text-4xl">App</Text>
+      <Text className="text-red-300 text-4xl">New Collection</Text>
 
       <ProductsList />
     </View>

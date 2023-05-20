@@ -4,10 +4,13 @@ import {useDispatch, useSelector} from 'react-redux';
 import { fetchproducts } from '../store/productsSlice';
 
 
+// components 
+import ProductCard from './ProductCard';
+
+
 const ProductsList = () => {
   const dispatch = useDispatch();
   const products = useSelector(state => state.products.data);
-  console.log('Products =>>>', products);
   
  // fetch from thunk 
   useEffect(() => {
@@ -15,8 +18,7 @@ const ProductsList = () => {
   }, []);
   return (
     <SafeAreaView>
-      <Text>ProductsList12</Text>
-      <FlatList data={products} keyExtractor={products => products.id} renderItem={({item}) => <Text>{item.title}</Text> } />
+      <FlatList data={products} keyExtractor={products => products.id} renderItem={({item}) => <ProductCard {...item} /> } />
     </SafeAreaView>
   );
 };
