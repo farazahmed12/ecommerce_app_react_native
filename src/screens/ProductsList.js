@@ -5,7 +5,7 @@ import { fetchproducts } from '../store/productsSlice';
 
 
 // components 
-import ProductCard from './ProductCard';
+import ProductCard from '../components/ProductCard';
 
 
 const ProductsList = () => {

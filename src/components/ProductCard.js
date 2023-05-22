@@ -11,7 +11,6 @@ const ProductCard = ({title, price, description, category, image}) => {
 
   const STATUS = useSelector(state => state.products.status)
 
-  console.log('status ===>',STATUS)
 
   // Add to cart
   const handleAddProduct = () => {
