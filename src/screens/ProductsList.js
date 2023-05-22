@@ -18,7 +18,7 @@ const ProductsList = () => {
   }, []);
   return (
     <SafeAreaView>
-      <FlatList data={products} keyExtractor={products => products.id} renderItem={({item}) => <ProductCard {...item} /> } />
+      <FlatList data={products} keyExtractor={products => products.id} renderItem={({item}) =>  <ProductCard wholeItem={item} {...item} /> } />
     </SafeAreaView>
   );
 };

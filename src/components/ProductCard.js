@@ -3,17 +3,22 @@ import React, {useState} from 'react';
 import {useColorScheme} from 'nativewind';
 import Toast from 'react-native-toast-message';
 import {useDispatch, useSelector} from 'react-redux';
+import { add } from '../store/cartSlice';
 
 
-const ProductCard = ({title, price, description, category, image}) => {
+const ProductCard = ({title, price, description, category, image, wholeItem}) => {
   const {colorScheme} = useColorScheme();
   const [qty, setQty] = useState(1);
 
-  const STATUS = useSelector(state => state.products.status)
 
+  // redux
+  const STATUS = useSelector(state => state.products.status)
+  const dispatch = useDispatch()
 
   // Add to cart
   const handleAddProduct = () => {
+  dispatch(add(wholeItem))  
+    
    Toast.show({
     type: 'success',
     text1: 'Product added to cart'
