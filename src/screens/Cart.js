@@ -1,21 +1,25 @@
-import { View, Text, FlatList } from 'react-native'
-import { useSelector } from 'react-redux'
+import {View, Text, FlatList} from 'react-native';
+import {useSelector} from 'react-redux';
 
-import React from 'react'
-import { useColorScheme } from 'nativewind'
+import React from 'react';
+import {useColorScheme} from 'nativewind';
+import CartItemCard from '../components/CartItemCard';
 
 const Home = () => {
+  // redux
+  const cart = useSelector(state => state.cart);
+  console.log('cart ===>', cart);
 
-
-  // redux 
-  const cart = useSelector(state => state.cart)
-
-  const {colorScheme} = useColorScheme()
+  const {colorScheme} = useColorScheme();
   return (
-    <View >
-      <Text className='text-red-700'>Home</Text>
+    <View>
+      <FlatList
+        data={cart}
+        keyExtractor={item => item.id}
+        renderItem={({item}) => <CartItemCard {...item} />}
+      />
     </View>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

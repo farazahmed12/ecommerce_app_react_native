@@ -5,7 +5,7 @@ export const productsSlice = createSlice({
     name: 'products',
     initialState: {
         data: [],
-        status: ''
+        status: '',
     },
     extraReducers: (builder) => {
         builder

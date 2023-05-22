@@ -41,7 +41,7 @@ const App = () => {
         <Switch value={colorScheme === 'dark'} onChange={toggleColorScheme} />
       </View>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName={'products'}>
+        <Stack.Navigator initialRouteName={'Products'}>
           <Stack.Screen
             options={{headerShown: false}}
             name="home"
@@ -49,7 +49,7 @@ const App = () => {
           />
           <Stack.Screen
             options={{headerShown: false}}
-            name="products"
+            name="Products"
             component={BottomTabNavigator}
           />
         </Stack.Navigator>
