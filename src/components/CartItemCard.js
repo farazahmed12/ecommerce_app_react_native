@@ -1,14 +1,17 @@
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {useColorScheme} from 'nativewind';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { remove } from '../store/cartSlice';
 
 
-const CartItemCard = ({title, image, price, id, category}) => {
+const CartItemCard = ({title, image, price, id, category, quantity}) => {
   const {colorScheme} = useColorScheme();
   // redux
   const dispatch = useDispatch()
+ 
+ 
+ 
   const handleDelete = () => {
     dispatch(remove(id))
   }
@@ -31,8 +34,8 @@ const CartItemCard = ({title, image, price, id, category}) => {
       </View>
       <View className="flex-row ml-2 mt-5 justify-between">
         <View className="flex-col">
-          <Text className="dark:text-white">Price:<Text className='font-bold'> ${price}</Text></Text>
-          <Text className="dark:text-white">Qty: <Text className='font-bold'> {0}</Text></Text>
+          <Text className="dark:text-white">Price:<Text className='font-bold'> ${price * quantity}</Text></Text>
+          <Text className="dark:text-white">Qty: <Text className='font-bold'> {quantity}</Text></Text>
         </View>
         <TouchableOpacity onPress={() => handleDelete()} className="border-[#36454F] border rounded  py-2 px-2 mr-3 dark:bg-[#36454F] dark:border-white">
           <Text className="font-bold dark:text-white">Remove from Cart</Text>

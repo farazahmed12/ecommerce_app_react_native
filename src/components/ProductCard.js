@@ -3,31 +3,36 @@ import React, {useState} from 'react';
 import {useColorScheme} from 'nativewind';
 import Toast from 'react-native-toast-message';
 import {useDispatch, useSelector} from 'react-redux';
-import { add } from '../store/cartSlice';
+import {add} from '../store/cartSlice';
+import {setQuantity} from '../store/cartSlice';
 
-
-const ProductCard = ({title, price, description, category, image, wholeItem}) => {
+const ProductCard = ({
+  title,
+  price,
+  description,
+  category,
+  image,
+  wholeItem,
+}) => {
   const {colorScheme} = useColorScheme();
   const [qty, setQty] = useState(1);
 
-
   // redux
-  const STATUS = useSelector(state => state.products.status)
-  const dispatch = useDispatch()
+  const STATUS = useSelector(state => state.products.status);
+  const dispatch = useDispatch();
 
   // Add to cart
   const handleAddProduct = () => {
-  dispatch(add(wholeItem))  
-    
-   Toast.show({
-    type: 'success',
-    text1: 'Product added to cart'
-   })
+    setQuantity(qty);
+    dispatch(add({...wholeItem, 'quantity': qty}));
+
+    Toast.show({
+      type: 'success',
+      text1: 'Product added to cart',
+    });
   };
   return (
     <View className="w-full bg-white dark:bg-[#36454F] rounded-3xl p-5 my-5">
-    
-
       <View className="bg-white rounded-xl">
         <Image
           source={{uri: image}}
