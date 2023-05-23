@@ -38,7 +38,7 @@ const CartItemCard = ({title, image, price, id, category, quantity}) => {
           <Text className="dark:text-white">Qty: <Text className='font-bold'> {quantity}</Text></Text>
         </View>
         <TouchableOpacity onPress={() => handleDelete()} className="border-[#36454F] border rounded  py-2 px-2 mr-3 dark:bg-[#36454F] dark:border-white">
-          <Text className="font-bold dark:text-white">Remove from Cart</Text>
+          <Text className="font-bold dark:text-white">Remove</Text>
         </TouchableOpacity>
       </View>
     </View>

@@ -10,8 +10,7 @@ import {
 } from 'react-native';
 import {useColorScheme} from 'nativewind';
 import React, {useEffect, useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {fetchproducts} from './store/productsSlice.js';
+
 import {Provider} from 'react-redux';
 import store from './store/store.js';
 import Toast from 'react-native-toast-message';
@@ -20,9 +19,13 @@ import BottomTabNavigator from './navigation/bottomTabNavigator.js';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
+// componenets
 import ProductsList from './screens/ProductsList.js';
 
-import Home from './screens/Cart.js';
+// screens
+import Cart from './screens/Cart.js';
+import Checkout from './screens/Checkout.js';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -45,13 +48,19 @@ const App = () => {
           <Stack.Screen
             options={{headerShown: false}}
             name="home"
-            component={Home}
+            component={Cart}
           />
           <Stack.Screen
             options={{headerShown: false}}
             name="HomeProducts"
             component={BottomTabNavigator}
           />
+            <Stack.Screen
+            options={{headerShown: false}}
+            name="Checkout"
+            component={Checkout}
+          />
+          
         </Stack.Navigator>
       </NavigationContainer>
 
