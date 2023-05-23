@@ -13,19 +13,36 @@ const Home = ({navigation}) => {
   const {colorScheme} = useColorScheme();
   return (
     <View>
-      <View className='bg-[#36454F] py-5 '>
-        <Text className='text-white text-center font-semibold text-2xl uppercase'>Your shopping cart</Text>
+      <View className="bg-[#36454F] py-5 ">
+        <Text className="text-white text-center font-semibold text-2xl uppercase">
+          Your shopping cart
+        </Text>
       </View>
       <FlatList
         data={cart}
         keyExtractor={item => item.id}
         renderItem={({item}) => <CartItemCard {...item} />}
       />
-      <View className='flex-row justify-end my-2'>
-        <TouchableOpacity className='border p-2 mr-4 rounded dark:bg-[#36454F]' onPress={() => navigation.navigate('Checkout')}>
-          <Text className='uppercase font-bold dark:text-white dark:border-white '>Checkout</Text>
-        </TouchableOpacity>
-      </View>
+      {cart.length > 0 ? (
+        <View className="my-2">
+          <TouchableOpacity
+            className="rounded border bg-black py-3 mx-3 mt-14"
+            onPress={() => navigation.navigate('Checkout')}>
+            <Text className="font-bold uppercase text-center text-white ">
+              Checkout
+            </Text>
+          </TouchableOpacity>
+        </View>
+      ) : (
+        <View className="m-3">
+          <Text className="text-black text-md ">Your Cart is Empty</Text>
+          <TouchableOpacity className="rounded border bg-black py-3 mx-3 mt-14" onPress={() => navigation.navigate('Products')}>
+            <Text className="font-bold uppercase text-center text-white">
+              Back to shopping
+            </Text>
+          </TouchableOpacity>
+        </View>
+      )}
     </View>
   );
 };
