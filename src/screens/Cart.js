@@ -26,6 +26,7 @@ const Home = ({navigation}) => {
       {cart.length > 0 ? (
         <View className="my-2">
           <TouchableOpacity
+          activeOpacity={0.7}
             className="rounded border bg-black py-3 mx-3 mt-14"
             onPress={() => navigation.navigate('Checkout')}>
             <Text className="font-bold uppercase text-center text-white ">
@@ -36,7 +37,10 @@ const Home = ({navigation}) => {
       ) : (
         <View className="m-3">
           <Text className="text-black text-md ">Your Cart is Empty</Text>
-          <TouchableOpacity className="rounded border bg-black py-3 mx-3 mt-14" onPress={() => navigation.navigate('Products')}>
+          <TouchableOpacity
+            className="rounded border bg-black py-3 mx-3 mt-14"
+            activeOpacity={0.7}
+            onPress={() => navigation.navigate('Products')}>
             <Text className="font-bold uppercase text-center text-white">
               Back to shopping
             </Text>

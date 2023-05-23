@@ -8,8 +8,7 @@ const Payment = ({navigation}) => {
   const {colorScheme} = useColorScheme();
   const [paypal, setPaypal] = useState(false);
   const [masterCard, setMasterCard] = useState(false);
-  console.log('pay', paypal);
-  console.log('master', masterCard);
+  
 
 
   return (
@@ -92,8 +91,9 @@ const Payment = ({navigation}) => {
         </View>
       </View>
       <TouchableOpacity
+      activeOpacity={0.7}
         className="rounded border bg-black py-3 mx-3 "
-        onPress={() => navigation.navigate('Payment')}>
+        onPress={() => navigation.navigate('PaymentSucess')}>
         <Text className="font-bold uppercase text-center text-white">
           confirm payment
         </Text>

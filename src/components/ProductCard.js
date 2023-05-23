@@ -76,6 +76,7 @@ const ProductCard = ({
         </Text>
 
         <TouchableOpacity
+        activeOpacity={0.7}
           onPress={handleAddProduct}
           className="flex-row justify-center w-8/12 self-center rounded-full p-3 bg-black dark:bg-white my-5">
           <Text className="text-white font-bold dark:text-black">

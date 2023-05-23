@@ -38,9 +38,12 @@ const Checkout = ({navigation}) => {
       </Text>
       <View className="flex-row justify-around mb-5">
         <TouchableOpacity
+          activeOpacity={0.7}
           style={{
             backgroundColor:
-              free && pickUp == false && normal == false ? '#525050' : '#FAF9F6',
+              free && pickUp == false && normal == false
+                ? '#525050'
+                : '#FAF9F6',
           }}
           className="p-2 border m-4 rounded"
           onPress={() => {
@@ -59,6 +62,7 @@ const Checkout = ({navigation}) => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity
+          activeOpacity={0.7}
           style={{
             backgroundColor:
               free == false && pickUp == true && normal == false
@@ -84,6 +88,7 @@ const Checkout = ({navigation}) => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity
+          activeOpacity={0.7}
           style={{
             backgroundColor:
               free == false && pickUp == false && normal == true
@@ -145,10 +150,11 @@ const Checkout = ({navigation}) => {
           placeholderTextColor={colorScheme == 'dark' ? '#949292' : null}
         />
       </View>
-      <TouchableOpacity className="rounded border bg-black py-3 mx-3 mt-14" onPress={() => navigation.navigate("Payment") }>
-        <Text className="font-bold uppercase text-center text-white">
-          Next
-        </Text>
+      <TouchableOpacity
+        className="rounded border bg-black py-3 mx-3 mt-14"
+        activeOpacity={0.7}
+        onPress={() => navigation.navigate('Payment')}>
+        <Text className="font-bold uppercase text-center text-white">Next</Text>
       </TouchableOpacity>
     </View>
   );

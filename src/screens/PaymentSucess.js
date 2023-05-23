@@ -1,12 +1,31 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import {View, Text, Image, TouchableOpacity} from 'react-native';
+import React from 'react';
 
-const PaymentSucess = () => {
+const PaymentSucess = ({navigation}) => {
   return (
-    <View>
-      <Text>PaymentSucess</Text>
-    </View>
-  )
-}
+    <View className="flex-1 flex-col">
+      <View className="flex-col self-center justify-center items-center mt-14 flex-grow">
+        <Image
+          source={require('../assets/checked.png')}
+          className="w-32 h-32 "
+        />
+        <Text className="text-2xl text-green-600 font-semibold">
+          Payment successful
+        </Text>
+      <Text className='text-gray-400 text-center mt-4'>Your Order is #454545 is successfully posted</Text>
 
-export default PaymentSucess
+      </View>
+
+      <TouchableOpacity
+      activeOpacity={0.7}
+        className="rounded border bg-black py-3 mx-3 mb-4 "
+        onPress={() => navigation.navigate('Products')}>
+        <Text className="font-bold uppercase text-center text-white">
+           continue shopping
+        </Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+export default PaymentSucess;
