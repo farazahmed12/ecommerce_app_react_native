@@ -145,7 +145,7 @@ const Checkout = ({navigation}) => {
           placeholderTextColor={colorScheme == 'dark' ? '#949292' : null}
         />
       </View>
-      <TouchableOpacity className="rounded border bg-black py-3 mx-3 mt-14">
+      <TouchableOpacity className="rounded border bg-black py-3 mx-3 mt-14" onPress={() => navigation.navigate("Payment") }>
         <Text className="font-bold uppercase text-center text-white">
           Next
         </Text>
