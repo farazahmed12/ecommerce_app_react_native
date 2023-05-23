@@ -121,32 +121,32 @@ const Checkout = ({navigation}) => {
       <View className="mx-3 flex-row justify-between flex-wrap space-x-1">
         <TextInput
           placeholder="First Name"
-          className="border-0 border-b w-5/12"
+          className="border-0 border-b w-5/12 dark:border-[white]"
           placeholderTextColor={colorScheme == 'dark' ? '#949292' : null}
         />
         <TextInput
           placeholder="Last Name"
-          className="border-0 border-b w-5/12 placeholder:text-white"
+          className="border-0 border-b w-5/12  dark:border-[white]"
           placeholderTextColor={colorScheme == 'dark' ? '#949292' : null}
         />
         <TextInput
           placeholder="Address line 1"
-          className="border-0 border-b w-full"
+          className="border-0 border-b w-full dark:border-[white]"
           placeholderTextColor={colorScheme == 'dark' ? '#949292' : null}
         />
         <TextInput
           placeholder="Address line 2"
-          className="border-0 border-b w-full"
+          className="border-0 border-b w-full dark:border-[white]"
           placeholderTextColor={colorScheme == 'dark' ? '#949292' : null}
         />
         <TextInput
           placeholder="City"
-          className="border-0 border-b w-5/12"
+          className="border-0 border-b w-5/12 dark:border-[white]"
           placeholderTextColor={colorScheme == 'dark' ? '#949292' : null}
         />
         <TextInput
           placeholder="Number"
-          className="border-0 border-b w-5/12"
+          className="border-0 border-b w-5/12 dark:border-[white]"
           placeholderTextColor={colorScheme == 'dark' ? '#949292' : null}
         />
       </View>

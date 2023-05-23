@@ -1,9 +1,12 @@
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
+import { useColorScheme } from 'nativewind';
+
 
 const PaymentSucess = ({navigation}) => {
+  const {colorScheme} = useColorScheme()
   return (
-    <View className="flex-1 flex-col">
+    <View className="flex-1 bg-white dark:bg-[#36454F]">
       <View className="flex-col self-center justify-center items-center mt-14 flex-grow">
         <Image
           source={require('../assets/checked.png')}

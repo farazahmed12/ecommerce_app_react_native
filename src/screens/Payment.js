@@ -77,15 +77,15 @@ const Payment = ({navigation}) => {
       ) : null}
 
       <View className="mx-6 my-8">
-        <View className="flex-row justify-between border-b p-2 my-2">
+        <View className="flex-row justify-between border-b p-2 my-2 dark:border-[white]">
           <Text className='dark:text-white'>Shipping: </Text>
           <Text className="font-bold dark:text-white">$ 10 </Text>
         </View>
-        <View className="flex-row justify-between border-b p-2 my-2">
+        <View className="flex-row justify-between border-b p-2 my-2 dark:border-[white]">
           <Text className='dark:text-white'>Subtotal: </Text>
           <Text className="font-bold dark:text-white">$ 5 </Text>
         </View>
-        <View className="flex-row justify-between border-b p-2 my-2">
+        <View className="flex-row justify-between border-b p-2 my-2 dark:border-[white]">
           <Text className='dark:text-white'>Total: </Text>
           <Text className="font-bold dark:text-white">$ 15 </Text>
         </View>

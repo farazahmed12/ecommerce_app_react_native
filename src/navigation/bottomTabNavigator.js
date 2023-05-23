@@ -7,6 +7,7 @@ import {useSelector} from 'react-redux';
 // screens
 import ProductsList from '../screens/ProductsList';
 import Cart from '../screens/Cart';
+import Menu from '../screens/Menu';
 Image;
 const Tab = createBottomTabNavigator();
 
@@ -49,6 +50,24 @@ const BottomTabNavigator = () => {
         }}
         name="Cart"
         component={Cart}
+      />
+      <Tab.Screen
+        options={{
+          headerShown: false,
+          tabBarIcon: () => (
+            <Image
+              source={require('../assets/menus.png')}
+              className="h-6 w-6"
+            />
+          ),
+          tabBarLabelStyle: {
+            color: '#36454F',
+            fontWeight: 'bold',
+          },
+          
+        }}
+        name="Menu"
+        component={Menu}
       />
     </Tab.Navigator>
   );
