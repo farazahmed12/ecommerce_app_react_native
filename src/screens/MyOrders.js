@@ -9,7 +9,7 @@ const MyOrder = ({navigation}) => {
       grandTotal: 87,
       products: [
         {
-          images: [require('../assets/plus.png')],
+          images: [require('../assets/phone.jpg')],
           name: 'Apple',
           offer: 10,
           salePrice: 2.7,
@@ -17,7 +17,7 @@ const MyOrder = ({navigation}) => {
           units: 10,
         },
         {
-          images: [require('../assets/plus.png')],
+          images: [require('../assets/phone.jpg')],
           name: 'Biryani',
           offer: 20,
           salePrice: 12,
@@ -34,7 +34,7 @@ const MyOrder = ({navigation}) => {
       grandTotal: 44,
       products: [
         {
-          images: [require('../assets/plus.png')],
+          images: [require('../assets/phone.jpg')],
           name: 'Apple',
           offer: 10,
           salePrice: 2.7,
@@ -42,7 +42,7 @@ const MyOrder = ({navigation}) => {
           units: 10,
         },
         {
-          images: [require('../assets/plus.png')],
+          images: [require('../assets/phone.jpg')],
           name: 'Biryani',
           offer: 20,
           salePrice: 12,
@@ -50,7 +50,7 @@ const MyOrder = ({navigation}) => {
           units: 5,
         },
         {
-          images: [require('../assets/plus.png')],
+          images: [require('../assets/phone.jpg')],
           name: 'Biryani',
           offer: 20,
           salePrice: 12,
@@ -67,7 +67,7 @@ const MyOrder = ({navigation}) => {
       grandTotal: 87,
       products: [
         {
-          images: [require('../assets/plus.png')],
+          images: [require('../assets/phone.jpg')],
           name: 'Apple',
           offer: 10,
           salePrice: 2.7,
@@ -75,7 +75,7 @@ const MyOrder = ({navigation}) => {
           units: 10,
         },
         {
-          images: [require('../assets/plus.png')],
+          images: [require('../assets/phone.jpg')],
           name: 'Biryani',
           offer: 20,
           salePrice: 12,

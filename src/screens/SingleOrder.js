@@ -46,24 +46,21 @@ const SingleOrder = ({navigation, route}) => {
         <FlatList
           data={products}
           renderItem={({item, index}) => {
-            console.log('item ==>', item);
+            console.log('item ==>', item.images[0]);
             return (
-              <View className="m-3 bg-[#848482] p-4 rounded">
-                <Text className="text-white">Product Name: {item.name}</Text>
-                <Text className="text-white">Quantity: {item.units}</Text>
-                <Text className="text-white">Price: {item.regularPrice}</Text>
-                <Image
-                 source={item.images}
-                  key={index}
-                  style={{
-                    width: 260,
-                    height: 300,
-                    borderWidth: 2,
-                    borderColor: '#d35647',
-                    resizeMode: 'contain',
-                    margin: 8,
-                  }}
-                />
+              <View className="m-3 bg-[#848482] p-4 rounded flex-row items-center">
+                <View className="flex-grow">
+                  <Text className="text-white">Product Name: {item.name}</Text>
+                  <Text className="text-white">Quantity: {item.units}</Text>
+                  <Text className="text-white">Price: {item.regularPrice}</Text>
+                </View>
+                <View>
+                  <Image
+                    className="w-16 h-16"
+                    source={item.images[0]}
+                    key={index}
+                  />
+                </View>
               </View>
             );
           }}
