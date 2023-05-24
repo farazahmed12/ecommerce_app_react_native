@@ -28,6 +28,7 @@ import Checkout from './screens/Checkout.js';
 import Payment from './screens/Payment.js';
 import PaymentSucess from './screens/PaymentSucess.js';
 import SingleOrder from './screens/SingleOrder.js';
+import WishList from './screens/WishList.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -57,12 +58,12 @@ const App = () => {
             name="HomeProducts"
             component={BottomTabNavigator}
           />
-            <Stack.Screen
+          <Stack.Screen
             options={{headerShown: false}}
             name="Checkout"
             component={Checkout}
           />
-            <Stack.Screen
+          <Stack.Screen
             options={{headerShown: false}}
             name="Payment"
             component={Payment}
@@ -76,6 +77,11 @@ const App = () => {
             options={{headerShown: false}}
             name="SingleOrder"
             component={SingleOrder}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="WishList"
+            component={WishList}
           />
         </Stack.Navigator>
       </NavigationContainer>

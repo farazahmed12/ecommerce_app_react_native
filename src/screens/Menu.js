@@ -16,12 +16,12 @@ const Menu = () => {
   const {colorScheme} = useColorScheme();
 
   const menuArray = [
-    {name: 'My Products'},
-    {name: 'My Orders'},
-    {name: 'My WishList'},
-    {name: 'Track your Order'},
-    { name: 'Settings'},
-    { name: 'Sign Out'},
+    {name: 'My Products', navPath: 'Products'},
+    {name: 'My Orders', navPath: 'My Orders'},
+    {name: 'My WishList', navPath: 'WishList'},
+    {name: 'Track your Order', navPath: 'Payment'},
+    {name: 'Settings', navPath: 'Payment'},
+    {name: 'Sign Out', navPath: 'Payment'},
   ];
 
   return (
@@ -37,7 +37,9 @@ const Menu = () => {
       <View>
         <FlatList
           data={menuArray}
-          renderItem={({item}) => <MenuItem name={item.name} />}
+          renderItem={({item}) => (
+            <MenuItem name={item.name} navPath={item.navPath} />
+          )}
         />
       </View>
     </View>
