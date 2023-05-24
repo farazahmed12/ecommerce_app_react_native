@@ -4,6 +4,7 @@ import {useColorScheme} from 'nativewind';
 import Toast from 'react-native-toast-message';
 import {useDispatch, useSelector} from 'react-redux';
 import {add} from '../store/cartSlice';
+import {addWishList} from '../store/WishListSlice';
 
 const ProductCard = ({
   title,
@@ -23,7 +24,15 @@ const ProductCard = ({
 
   const dispatch = useDispatch();
 
-  
+  // Add to wishlist
+  const handleAddWishList = () => {
+    dispatch(addWishList(wholeItem));
+    Toast.show({
+      type: 'success',
+      text1: 'Product added to Wishlist',
+    });
+  };
+
   // Add to cart
   const handleAddProduct = () => {
     dispatch(add({...wholeItem, quantity: qty}));
@@ -66,9 +75,20 @@ const ProductCard = ({
             <Image source={require('../assets/plus.png')} className="w-6 h-6" />
           </TouchableOpacity>
         </View>
-        <Text className="text-2xl font-extrabold dark:text-white">
-          ${(price * qty).toFixed(2)}
-        </Text>
+        <View className="flex-row justify-between items-center">
+          <Text className="text-2xl font-extrabold dark:text-white">
+            ${(price * qty).toFixed(2)}
+          </Text>
+          <TouchableOpacity
+            onPress={handleAddWishList}
+            className="p-2 bg-gray-100 rounded-full">
+            <Image
+              source={require('../assets/heart.png')}
+              className="h-6 w-6"
+            />
+          </TouchableOpacity>
+        </View>
+
         <Text
           numberOfLines={2}
           className="text-sm text-black/60 dark:text-white/70">
@@ -76,7 +96,7 @@ const ProductCard = ({
         </Text>
 
         <TouchableOpacity
-        activeOpacity={0.7}
+          activeOpacity={0.7}
           onPress={handleAddProduct}
           className="flex-row justify-center w-8/12 self-center rounded-full p-3 bg-black dark:bg-white my-5">
           <Text className="text-white font-bold dark:text-black">

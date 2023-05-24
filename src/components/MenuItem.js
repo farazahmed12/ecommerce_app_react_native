@@ -7,8 +7,6 @@ const MenuItem = ({name, navPath}) => {
   const {colorScheme} = useColorScheme();
   const navigation = useNavigation();
 
-  console.log('nav ===>', navPath);
-
   return (
     <TouchableOpacity
       onPress={() => navigation.navigate(navPath)}
