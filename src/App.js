@@ -27,7 +27,7 @@ import Cart from './screens/Cart.js';
 import Checkout from './screens/Checkout.js';
 import Payment from './screens/Payment.js';
 import PaymentSucess from './screens/PaymentSucess.js';
-
+import SingleOrder from './screens/SingleOrder.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -71,6 +71,11 @@ const App = () => {
             options={{headerShown: false}}
             name="PaymentSucess"
             component={PaymentSucess}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="SingleOrder"
+            component={SingleOrder}
           />
         </Stack.Navigator>
       </NavigationContainer>
