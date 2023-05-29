@@ -29,6 +29,7 @@ import Payment from './screens/Payment.js';
 import PaymentSucess from './screens/PaymentSucess.js';
 import SingleOrder from './screens/SingleOrder.js';
 import WishList from './screens/WishList.js';
+import TrackOrder from './screens/TrackOrder.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -82,6 +83,11 @@ const App = () => {
             options={{headerShown: false}}
             name="WishList"
             component={WishList}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="TrackOrder"
+            component={TrackOrder}
           />
         </Stack.Navigator>
       </NavigationContainer>

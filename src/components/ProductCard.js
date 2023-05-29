@@ -21,16 +21,26 @@ const ProductCard = ({
   // redux
   const STATUS = useSelector(state => state.products.status);
   const cartItems = useSelector(state => state.cart);
+  const wishListItems = useSelector(state => state.wishlist);
 
   const dispatch = useDispatch();
 
   // Add to wishlist
   const handleAddWishList = () => {
-    dispatch(addWishList(wholeItem));
-    Toast.show({
-      type: 'success',
-      text1: 'Product added to Wishlist',
-    });
+    const itemIndex = wishListItems?.findIndex(item => item.id === id);
+
+    if (itemIndex == -1) {
+      dispatch(addWishList(wholeItem));
+      Toast.show({
+        type: 'success',
+        text1: 'Product added to Wishlist',
+      });
+    } else {
+      Toast.show({
+        type: 'success',
+        text1: 'Item Already Exist',
+      });
+    }
   };
 
   // Add to cart

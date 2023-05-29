@@ -8,7 +8,7 @@ import CartItemCard from '../components/CartItemCard';
 const Home = ({navigation}) => {
   // redux
   const cart = useSelector(state => state.cart);
-  console.log('cart ===>', cart);
+  //  console.log('cart ===>', cart);
 
   const {colorScheme} = useColorScheme();
   return (
@@ -26,7 +26,7 @@ const Home = ({navigation}) => {
       {cart.length > 0 ? (
         <View className="my-2">
           <TouchableOpacity
-          activeOpacity={0.7}
+            activeOpacity={0.7}
             className="rounded border bg-black py-3 mx-3 mt-14"
             onPress={() => navigation.navigate('Checkout')}>
             <Text className="font-bold uppercase text-center text-white ">
