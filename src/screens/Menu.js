@@ -20,8 +20,7 @@ const Menu = () => {
     {name: 'My Orders', navPath: 'My Orders'},
     {name: 'My WishList', navPath: 'WishList'},
     {name: 'Track your Order', navPath: 'TrackOrder'},
-    {name: 'Settings', navPath: 'Payment'},
-    {name: 'Sign Out', navPath: 'Payment'},
+    {name: 'Sign Out', navPath: 'Login'},
   ];
 
   return (

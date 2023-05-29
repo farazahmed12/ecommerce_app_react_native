@@ -30,17 +30,15 @@ import PaymentSucess from './screens/PaymentSucess.js';
 import SingleOrder from './screens/SingleOrder.js';
 import WishList from './screens/WishList.js';
 import TrackOrder from './screens/TrackOrder.js';
+import Login from './screens/Login.js';
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   const {colorScheme, toggleColorScheme} = useColorScheme();
   const [modalVisible, setModalVisible] = useState(false);
-
   return (
     <View className="flex-1 bg-gray-200 dark:bg-black">
-      {/* Modal */}
-
       <View className="flex-row justify-between">
         <Text className="text-gray-700 text-2xl font-bold ml-2 dark:text-white/70">
           ShopStop
@@ -88,6 +86,11 @@ const App = () => {
             options={{headerShown: false}}
             name="TrackOrder"
             component={TrackOrder}
+          />
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="Login"
+            component={Login}
           />
         </Stack.Navigator>
       </NavigationContainer>
