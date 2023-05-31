@@ -54,7 +54,7 @@ const App = () => {
   return (
     <View className="flex-1 bg-gray-200 dark:bg-black">
       <View className="flex-row justify-between">
-        <Text className="text-gray-700 text-2xl font-bold ml-2 dark:text-white/70">
+        <Text className="text-gray-700 text-2xl font-bold ml-2 py-2 dark:text-white/70">
           ShopStop
         </Text>
         <Switch value={colorScheme === 'dark'} onChange={toggleColorScheme} />

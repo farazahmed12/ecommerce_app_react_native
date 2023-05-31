@@ -12,11 +12,13 @@ import {removeUser} from '../store/userSlice';
 
 // compoenets
 import MenuItem from '../components/MenuItem';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 const Menu = () => {
   const dispatch = useDispatch();
   const {colorScheme} = useColorScheme();
+
+  const user = useSelector(state => state.user.user);
 
   const menuArray = [
     {name: 'My Products', navPath: 'Products'},
@@ -35,8 +37,10 @@ const Menu = () => {
       <View className="flex-row my-5 items-center mx-3">
         <Image source={require('../assets/user.png')} className="w-20 h-20" />
         <View className="ml-5">
-          <Text className="text-lg font-bold dark:text-white">John Doe</Text>
-          <Text className="text-sm dark:text-white">ID: 0000304094</Text>
+          <Text className="text-lg font-bold dark:text-white">
+            {user?.user?.username}
+          </Text>
+          <Text className="text-sm dark:text-white">{user?.user?.email}</Text>
         </View>
       </View>
 
