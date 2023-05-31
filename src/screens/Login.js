@@ -8,26 +8,31 @@ import {
   TextInput,
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
-import NetInfo from '@react-native-community/netinfo';
+import {useSelector, useDispatch} from 'react-redux';
+import {setUser} from '../store/userSlice';
+import axios from 'axios';
+
+import {BASE_URL} from '../constants';
 
 const Login = ({navigation}) => {
-  const [isConnected, setIsConnected] = useState(false);
-  const [isInternet, setisInternet] = useState([]);
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
 
-  console.log('Conn2 ===>', isInternet);
-
-  useEffect(() => {
-    const unsubscribe = NetInfo.addEventListener(state => {
-      setIsConnected(state.isConnected);
-      setisInternet(state.isInternetReachable);
-    });
-
-    return () => {
-      unsubscribe();
+  const handleLoginSumbit = () => {
+    let params = {
+      identifier: email,
+      password: password,
     };
-  }, []);
+    console.log('params ===>', params);
+    axios
+      .post(`${BASE_URL}/api/auth/local`, params)
+      .then(res => {
+        console.log('LOGIN ==>', res.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 
   return (
     <View className="flex-1 bg-red-300">
@@ -46,31 +51,24 @@ const Login = ({navigation}) => {
             placeholder="Email"
             className="border rounded  w-full p-2 my-4"
             value={email}
-            onChange={e => setemail(e.target.value)}
+            onChangeText={e => setemail(e)}
           />
           <TextInput
             placeholder="Password"
             className="border rounded  w-full p-2 my-4"
             secureTextEntry={true}
             value={password}
-            onChange={e => setpassword(e.target.value)}
+            onChangeText={e => setpassword(e)}
           />
           <TouchableOpacity
             activeOpacity={0.7}
             className="rounded border bg-black p-3 my-8 "
-            onPress={() => navigation.navigate('Products')}>
+            onPress={() => handleLoginSumbit()}>
             <Text className="font-bold uppercase text-center text-white">
               LOGIN
             </Text>
           </TouchableOpacity>
         </View>
-        {!isConnected && (
-          <View className=" absolute bottom-0 w-full bg-green-400">
-            <Text className="py-1 text-white text-center">
-              No Internet Access
-            </Text>
-          </View>
-        )}
       </ScrollView>
     </View>
   );

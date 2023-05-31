@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import {useColorScheme} from 'nativewind';
 import React, {useEffect, useState} from 'react';
+import NetInfo from '@react-native-community/netinfo';
 
 import {Provider} from 'react-redux';
 import store from './store/store.js';
@@ -37,6 +38,19 @@ const Stack = createNativeStackNavigator();
 const App = () => {
   const {colorScheme, toggleColorScheme} = useColorScheme();
   const [modalVisible, setModalVisible] = useState(false);
+  const [isConnected, setIsConnected] = useState(false);
+  const [isInternet, setisInternet] = useState([]);
+
+  useEffect(() => {
+    const unsubscribe = NetInfo.addEventListener(state => {
+      setIsConnected(state.isConnected);
+      setisInternet(state.isInternetReachable);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
   return (
     <View className="flex-1 bg-gray-200 dark:bg-black">
       <View className="flex-row justify-between">
@@ -94,6 +108,13 @@ const App = () => {
           />
         </Stack.Navigator>
       </NavigationContainer>
+      {!isConnected && (
+        <View className=" absolute bottom-0 w-full bg-green-400">
+          <Text className="py-1 text-white text-center">
+            No Internet Access
+          </Text>
+        </View>
+      )}
 
       <Toast />
     </View>
