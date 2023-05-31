@@ -13,7 +13,7 @@ const CartItemCard = ({title, image, price, id, category, quantity}) => {
     dispatch(remove(id));
   };
   return (
-    <View className="flex-col bg-white dark:bg-[#36454F] rounded-lg my-4 mx-2 py-4 ">
+    <View className="flex-col bg-white dark:bg-[#36454F] rounded-lg my-4 mx-2 py-4 shadow ">
       <View className=" flex-row items-center ">
         <Image
           source={{uri: image}}

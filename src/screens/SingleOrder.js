@@ -48,11 +48,15 @@ const SingleOrder = ({navigation, route}) => {
           renderItem={({item, index}) => {
             console.log('item ==>', item.images[0]);
             return (
-              <View className="m-3 bg-[#848482] p-4 rounded flex-row items-center">
+              <View className="m-3 bg-gray-200 p-4 rounded flex-row items-center">
                 <View className="flex-grow">
-                  <Text className="text-white">Product Name: {item.name}</Text>
-                  <Text className="text-white">Quantity: {item.units}</Text>
-                  <Text className="text-white">Price: {item.regularPrice}</Text>
+                  <Text className="text-gray-500">
+                    Product Name: {item.name}
+                  </Text>
+                  <Text className="text-gray-500">Quantity: {item.units}</Text>
+                  <Text className="text-gray-500">
+                    Price: {item.regularPrice}
+                  </Text>
                 </View>
                 <View>
                   <Image

@@ -15,7 +15,7 @@ const Home = ({navigation}) => {
 
   const {colorScheme} = useColorScheme();
   return (
-    <View>
+    <View className="flex-1 bg-white">
       <View className="bg-[#36454F] py-5 ">
         <Text className="text-white text-center font-semibold text-2xl uppercase">
           Your shopping cart
@@ -27,7 +27,7 @@ const Home = ({navigation}) => {
         renderItem={({item}) => <CartItemCard {...item} />}
       />
       {cart.length > 0 ? (
-        <View className="my-2">
+        <View className=" my-2">
           <TouchableOpacity
             activeOpacity={0.7}
             className="rounded border bg-black py-3 mx-3 mt-14"
@@ -38,10 +38,10 @@ const Home = ({navigation}) => {
           </TouchableOpacity>
         </View>
       ) : (
-        <View className="m-3">
-          <Text className="text-black text-md ">Your Cart is Empty</Text>
+        <View className="absolute top-32 left-6 m-3">
+          <Text className="text-black text-md mx-3">Your Cart is Empty</Text>
           <TouchableOpacity
-            className="rounded border bg-black py-3 mx-3 mt-14"
+            className="rounded border bg-black py-3 mx-3 mt-7 w-full"
             activeOpacity={0.7}
             onPress={() => navigation.navigate('Products')}>
             <Text className="font-bold uppercase text-center text-white">

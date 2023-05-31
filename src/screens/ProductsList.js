@@ -15,8 +15,9 @@ const ProductsList = () => {
     dispatch(fetchproducts());
   }, []);
   return (
-    <SafeAreaView>
+    <SafeAreaView className="bg-white">
       <FlatList
+        contentContainerStyle={{alignItems: 'center'}}
         data={products}
         keyExtractor={products => products.id}
         renderItem={({item}) => <ProductCard wholeItem={item} {...item} />}

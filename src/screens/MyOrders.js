@@ -88,7 +88,7 @@ const MyOrder = ({navigation}) => {
     },
   ];
   return (
-    <View className="flex-1">
+    <View className="flex-1 bg-white">
       <FlatList
         data={orderData}
         renderItem={({item}) => (
@@ -97,7 +97,7 @@ const MyOrder = ({navigation}) => {
             onPress={() => {
               navigation.navigate('SingleOrder', {orderItem: item});
             }}
-            className="rounded bg-white mx-3 my-4 p-4 flex-row items-center">
+            className="rounded bg-white mx-3 my-4 p-4 flex-row items-center shadow">
             <View className="flex-grow">
               <Text className="text-lg font-bold my-3">{`Order No ${item.orderID}`}</Text>
               <View className="flex-row space-x-4">

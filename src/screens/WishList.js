@@ -25,7 +25,7 @@ const WishList = ({navigation}) => {
   };
 
   return (
-    <SafeAreaView className=" dark:bg-[#36454F] flex-1">
+    <SafeAreaView className=" dark:bg-[#36454F] flex-1 bg-white">
       <View className="bg-[#36454F] py-5 flex-row">
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image
@@ -41,7 +41,7 @@ const WishList = ({navigation}) => {
         data={wishlistItems}
         renderItem={({item}) => {
           return (
-            <View className="bg-white dark:bg-[#1e2c36] rounded-3xl w-full my-5 p-6">
+            <View className="bg-white dark:bg-[#1e2c36] rounded-3xl w-full my-5 p-6 shadow">
               <View className="flex-row justify-between items-center">
                 <Image
                   source={{uri: item.image}}

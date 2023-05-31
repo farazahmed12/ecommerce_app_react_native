@@ -53,7 +53,7 @@ const ProductCard = ({
     });
   };
   return (
-    <View className="w-full bg-white dark:bg-[#36454F] rounded-3xl p-5 my-5">
+    <View className="w-[95%] bg-white dark:bg-[#36454F] rounded-3xl p-5 my-5 shadow-lg">
       <View className="bg-white rounded-xl">
         <Image
           source={{uri: image}}
