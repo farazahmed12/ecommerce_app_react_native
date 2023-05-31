@@ -8,18 +8,25 @@ import {
 } from 'react-native';
 import React from 'react';
 import {useColorScheme} from 'nativewind';
+import {removeUser} from '../store/userSlice';
 
 // compoenets
 import MenuItem from '../components/MenuItem';
+import {useDispatch} from 'react-redux';
 
 const Menu = () => {
+  const dispatch = useDispatch();
   const {colorScheme} = useColorScheme();
 
   const menuArray = [
     {name: 'My Products', navPath: 'Products'},
     {name: 'My Orders', navPath: 'My Orders'},
     {name: 'My WishList', navPath: 'WishList'},
-    {name: 'Track your Order', navPath: 'TrackOrder'},
+    {
+      name: 'Track your Order',
+      navPath: 'TrackOrder',
+      onClick: dispatch(removeUser),
+    },
     {name: 'Sign Out', navPath: 'Login'},
   ];
 
@@ -37,7 +44,11 @@ const Menu = () => {
         <FlatList
           data={menuArray}
           renderItem={({item}) => (
-            <MenuItem name={item.name} navPath={item.navPath} />
+            <MenuItem
+              name={item.name}
+              navPath={item.navPath}
+              onClick={item.onClick}
+            />
           )}
         />
       </View>

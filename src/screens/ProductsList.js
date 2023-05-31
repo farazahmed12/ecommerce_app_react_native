@@ -7,11 +7,8 @@ import {fetchproducts} from '../store/productsSlice';
 import ProductCard from '../components/ProductCard';
 
 const ProductsList = () => {
-
-  
   const dispatch = useDispatch();
   const products = useSelector(state => state.products.data);
- 
 
   // fetch from thunk
   useEffect(() => {

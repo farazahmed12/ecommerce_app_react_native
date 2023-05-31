@@ -5,32 +5,49 @@ import {
   ScrollView,
   Image,
   SafeAreaView,
+  ActivityIndicator,
   TextInput,
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {setUser} from '../store/userSlice';
 import axios from 'axios';
-
+import Toast from 'react-native-toast-message';
 import {BASE_URL} from '../constants';
 
 const Login = ({navigation}) => {
+  const dispatch = useDispatch();
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
+  const [loading, setloading] = useState(false);
 
   const handleLoginSumbit = () => {
     let params = {
       identifier: email,
       password: password,
     };
-    console.log('params ===>', params);
+    setloading(true);
     axios
       .post(`${BASE_URL}/api/auth/local`, params)
       .then(res => {
-        console.log('LOGIN ==>', res.data);
+        console.log('LOGIN ====>', res.data);
+        dispatch(setUser(res.data));
+        Toast.show({
+          type: 'success',
+          text1: 'Login Successful',
+        });
+        navigation.navigate('Products');
       })
+
       .catch(error => {
         console.log(error);
+        Toast.show({
+          type: 'error',
+          text1: 'Invalid Credentials',
+        });
+      })
+      .finally(res => {
+        setloading(false);
       });
   };
 
@@ -61,12 +78,17 @@ const Login = ({navigation}) => {
             onChangeText={e => setpassword(e)}
           />
           <TouchableOpacity
+            disabled={loading ? true : false}
             activeOpacity={0.7}
             className="rounded border bg-black p-3 my-8 "
             onPress={() => handleLoginSumbit()}>
-            <Text className="font-bold uppercase text-center text-white">
-              LOGIN
-            </Text>
+            {loading ? (
+              <ActivityIndicator size="small" color="white" />
+            ) : (
+              <Text className="font-bold uppercase text-center text-white">
+                LOGIN
+              </Text>
+            )}
           </TouchableOpacity>
         </View>
       </ScrollView>

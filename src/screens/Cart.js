@@ -9,6 +9,9 @@ const Home = ({navigation}) => {
   // redux
   const cart = useSelector(state => state.cart);
   //  console.log('cart ===>', cart);
+  const user = useSelector(state => state);
+
+  console.log('PROD ===> ', user);
 
   const {colorScheme} = useColorScheme();
   return (
